@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez Anim'Média : formulaire de contact, coordonnées, plan d'accès à La Guerche-sur-l'Aubois.">
+    <title>Contact - Anim'Média</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-required {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .map-container {
+            margin-top: 3rem;
+        }
+        
+        .map-embed {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="../index.html" class="logo" aria-label="Retour à l'accueil">
+                <div class="logo__icon" aria-hidden="true">🎭</div>
+                <span>Anim'Média</span>
+            </a>
+            
+            <nav class="nav" role="navigation" aria-label="Navigation principale">
+                <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+                <ul class="nav__list">
+                    <li><a href="../index.html" class="nav__link">Accueil</a></li>
+                    <li><a href="association.html" class="nav__link">L'association</a></li>
+                    <li><a href="activites.html" class="nav__link">Nos activités</a></li>
+                    <li><a href="agenda.html" class="nav__link">Agenda</a></li>
+                    <li><a href="galerie.html" class="nav__link">Galerie</a></li>
+                    <li><a href="partenaires.html" class="nav__link">Partenaires</a></li>
+                    <li><a href="contact.html" class="nav__link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero__title">Contactez-nous</h1>
+            <p class="hero__subtitle">Nous sommes là pour vous accompagner</p>
+            <p class="hero__description">
+                Une question, une suggestion, ou envie de rejoindre nos activités ? 
+                N'hésitez pas à nous contacter. Nous vous répondrons rapidement !
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Formulaire de contact -->
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                        Envoyez-nous un message
+                    </h2>
+                    
+                    <form class="contact-form" id="contact-form" action="#" method="post">
+                        <div class="form-group">
+                            <label for="name" class="form-label">
+                                Nom et prénom <span class="form-required">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                class="form-input" 
+                                required
+                                placeholder="Votre nom complet"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                Email <span class="form-required">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-input" 
+                                required
+                                placeholder="votre.email@exemple.fr"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">
+                                Téléphone
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-input"
+                                placeholder="06 12 34 56 78"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">
+                                Sujet <span class="form-required">*</span>
+                            </label>
+                            <select id="subject" name="subject" class="form-select" required>
+                                <option value="">Choisissez un sujet</option>
+                                <option value="inscription">Inscription à une activité</option>
+                                <option value="information">Demande d'information</option>
+                                <option value="benevole">Devenir bénévole</option>
+                                <option value="partenariat">Proposition de partenariat</option>
+                                <option value="suggestion">Suggestion d'activité</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="activity" class="form-label">
+                                Activité concernée (si applicable)
+                            </label>
+                            <select id="activity" name="activity" class="form-select">
+                                <option value="">Sélectionnez une activité</option>
+                                <option value="cafe-numerique">Café numérique</option>
+                                <option value="montessori">Ateliers Montessori</option>
+                                <option value="cuisine">Ateliers cuisine</option>
+                                <option value="ecriture">Ateliers d'écriture</option>
+                                <option value="spectacles">Spectacles</option>
+                                <option value="sorties">Sorties culturelles</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">
+                                Message <span class="form-required">*</span>
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                class="form-textarea" 
+                                required
+                                placeholder="Décrivez votre demande, vos questions ou vos suggestions..."
+                            ></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" required style="margin: 0;">
+                                <span style="font-size: 0.875rem; line-height: 1.4;">
+                                    J'accepte que mes données soient utilisées pour répondre à ma demande. 
+                                    <span class="form-required">*</span>
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary" style="width: 100%;">
+                            Envoyer le message
+                        </button>
+                        
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 1rem; text-align: center;">
+                            <span class="form-required">*</span> Champs obligatoires
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- Informations de contact -->
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                        Nos coordonnées
+                    </h2>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4 style="margin: 0 0 0.5rem 0;">Adresse</h4>
+                                <p style="margin: 0; opacity: 0.9;">
+                                    Médiathèque Jean-Paul Roussillot<br>
+                                    Place de la Mairie<br>
+                                    18150 La Guerche-sur-l'Aubois
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4 style="margin: 0 0 0.5rem 0;">Email</h4>
+                                <p style="margin: 0; opacity: 0.9;">
+                                    <a href="mailto:contact@anim-media.fr" style="color: white; text-decoration: none;">
+                                        contact@anim-media.fr
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4 style="margin: 0 0 0.5rem 0;">Téléphone</h4>
+                                <p style="margin: 0; opacity: 0.9;">
+                                    <a href="tel:+33248802750" style="color: white; text-decoration: none;">
+                                        02 48 80 27 50
+                                    </a><br>
+                                    <span style="font-size: 0.875rem;">
+                                        (Médiathèque - aux heures d'ouverture)
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div>
+                                <h4 style="margin: 0 0 0.5rem 0;">Horaires d'accueil</h4>
+                                <p style="margin: 0; opacity: 0.9; font-size: 0.875rem; line-height: 1.4;">
+                                    <strong>Café numérique :</strong> Mercredis 10h-12h<br>
+                                    <strong>Autres activités :</strong> Selon planning<br>
+                                    <strong>Email :</strong> Réponse sous 48h
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem; margin-top: 1.5rem;">
+                            <h4 style="margin: 0 0 1rem 0;">Suivez-nous</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link" aria-label="Facebook" title="Facebook">📘</a>
+                                <a href="#" class="social-link" aria-label="Instagram" title="Instagram">📷</a>
+                                <a href="mailto:contact@anim-media.fr" class="social-link" aria-label="Email" title="Email">✉️</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Plan d'accès -->
+    <section class="section" style="background-color: #F8F9FA;">
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Plan d'accès</h2>
+                <p class="section__subtitle">Trouvez facilement nos lieux d'activités</p>
+            </header>
+            
+            <div class="map-container">
+                <!-- Intégration Google Maps (remplacer par la vraie intégration) -->
+                <div style="background: #E8E8E8; height: 400px; border-radius: var(--border-radius-lg); 
+                            display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🗺️</div>
+                        <h3>Plan d'accès interactif</h3>
+                        <p>La Guerche-sur-l'Aubois, Cher (18)</p>
+                        <a href="https://www.google.fr/maps/place/La+Guerche-sur-l'Aubois" 
+                           target="_blank" class="btn btn--primary" style="margin-top: 1rem;">
+                            Voir sur Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="card">
+                    <div class="card__icon">🚗</div>
+                    <h3 class="card__title">En voiture</h3>
+                    <p class="card__description">
+                        <strong>Depuis Bourges :</strong> 20 minutes par la D976<br>
+                        <strong>Depuis Nevers :</strong> 25 minutes par la D976<br>
+                        <strong>Parking :</strong> Gratuit devant la médiathèque
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">🚌</div>
+                    <h3 class="card__title">Transports en commun</h3>
+                    <p class="card__description">
+                        <strong>Bus :</strong> Ligne départementale Bourges-Nevers<br>
+                        <strong>Arrêt :</strong> "La Guerche Centre"<br>
+                        <strong>Info :</strong> <a href="https://www.remi-centrevaldeloire.fr" target="_blank">Rémi Centre-Val de Loire</a>
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">♿</div>
+                    <h3 class="card__title">Accessibilité</h3>
+                    <p class="card__description">
+                        Tous nos lieux sont <strong>accessibles PMR</strong>.<br>
+                        Parking réservé et rampe d'accès disponibles.<br>
+                        Signalons-nous vos besoins spécifiques !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Questions fréquentes -->
+    <section class="section">
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Questions fréquentes</h2>
+            </header>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+                        Comment s'inscrire aux activités ?
+                    </h4>
+                    <p style="line-height: 1.6; margin: 0;">
+                        Contactez-nous par téléphone, email ou directement à la médiathèque. 
+                        Certaines activités nécessitent une inscription préalable, d'autres sont en accès libre.
+                    </p>
+                </div>
+                
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+                        Les activités sont-elles payantes ?
+                    </h4>
+                    <p style="line-height: 1.6; margin: 0;">
+                        La plupart de nos activités sont gratuites ou proposées à prix symbolique 
+                        (3€ à 5€ maximum) pour rester accessibles à tous.
+                    </p>
+                </div>
+                
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+                        Peut-on venir sans être de La Guerche-sur-l'Aubois ?
+                    </h4>
+                    <p style="line-height: 1.6; margin: 0;">
+                        Bien sûr ! Nos activités sont ouvertes à tous, résidents ou non de la commune. 
+                        Nous accueillons avec plaisir les participants des communes voisines.
+                    </p>
+                </div>
+                
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+                        Comment devenir bénévole ?
+                    </h4>
+                    <p style="line-height: 1.6; margin: 0;">
+                        Contactez-nous pour discuter de vos motivations et compétences. 
+                        Nous recherchons régulièrement des bénévoles pour animer nos activités 
+                        ou aider à l'organisation d'événements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h3>Anim'Média</h3>
+                    <p>Association culturelle et numérique</p>
+                    <p>La Guerche-sur-l'Aubois</p>
+                    <p>Cher (18), France</p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Nos activités</h3>
+                    <p><a href="activites.html">Café numérique</a></p>
+                    <p><a href="activites.html">Ateliers Montessori</a></p>
+                    <p><a href="activites.html">Ateliers cuisine</a></p>
+                    <p><a href="activites.html">Spectacles</a></p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Liens utiles</h3>
+                    <p><a href="agenda.html">Agenda des événements</a></p>
+                    <p><a href="partenaires.html">Nos partenaires</a></p>
+                    <p><a href="galerie.html">Galerie photos</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Nous contacter</h3>
+                    <p><a href="mailto:contact@anim-media.fr">contact@anim-media.fr</a></p>
+                    <p><a href="tel:+33248802750">02 48 80 27 50</a></p>
+                    <p>Place de la Mairie</p>
+                    <p>18150 La Guerche-sur-l'Aubois</p>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 Anim'Média - Tous droits réservés | Association loi 1901</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Gestion du formulaire de contact
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validation du formulaire (déjà gérée par main.js)
+            if (validateForm(this)) {
+                // Simulation d'envoi (en production, ceci enverrait réellement l'email)
+                showSubmissionSuccess();
+                this.reset();
+            }
+        });
+        
+        function showSubmissionSuccess() {
+            // Créer un message de confirmation
+            const message = document.createElement('div');
+            message.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 2rem;
+                border-radius: var(--border-radius-lg);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                z-index: 10001;
+                text-align: center;
+                max-width: 400px;
+                width: 90%;
+            `;
+            
+            message.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Message envoyé !</h3>
+                <p style="line-height: 1.6; color: var(--text-light); margin-bottom: 1.5rem;">
+                    Votre message a été envoyé avec succès. 
+                    Nous vous répondrons dans les plus brefs délais.
+                </p>
+                <button onclick="this.parentElement.remove(); document.body.style.overflow = 'auto';" 
+                        class="btn btn--primary">
+                    Fermer
+                </button>
+            `;
+            
+            // Créer un overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 10000;
+            `;
+            
+            document.body.style.overflow = 'hidden';
+            document.body.appendChild(overlay);
+            document.body.appendChild(message);
+            
+            // Fermer en cliquant sur l'overlay
+            overlay.addEventListener('click', function() {
+                message.remove();
+                overlay.remove();
+                document.body.style.overflow = 'auto';
+            });
+        }
+    </script>
+</body>
+</html>

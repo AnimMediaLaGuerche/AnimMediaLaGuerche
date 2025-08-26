@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agenda des événements Anim'Média : ateliers, spectacles, sorties culturelles. Consultez notre programme et inscrivez-vous.">
+    <title>Agenda - Anim'Média</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        .calendar-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border-color);
+            background: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-btn.active {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .event-card.numérique {
+            border-left-color: #4682B4;
+        }
+        
+        .event-card.cuisine {
+            border-left-color: #F4A460;
+        }
+        
+        .event-card.spectacle {
+            border-left-color: #9370DB;
+        }
+        
+        .event-card.montessori {
+            border-left-color: #FF69B4;
+        }
+        
+        .event-card.écriture {
+            border-left-color: #32CD32;
+        }
+        
+        .event-card.sortie {
+            border-left-color: #FF6347;
+        }
+        
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        
+        .event-date-time {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .event-date {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            min-width: 80px;
+            font-weight: bold;
+        }
+        
+        .event-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: var(--background-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .event-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #F8F9FA;
+            border-radius: var(--border-radius);
+        }
+        
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        .event-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .registration-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .registration-status.available {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .registration-status.limited {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .registration-status.full {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .no-events {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .event-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .event-date-time {
+                flex-direction: column;
+                align-items: start;
+                gap: 0.5rem;
+            }
+            
+            .event-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="../index.html" class="logo" aria-label="Retour à l'accueil">
+                <div class="logo__icon" aria-hidden="true">🎭</div>
+                <span>Anim'Média</span>
+            </a>
+            
+            <nav class="nav" role="navigation" aria-label="Navigation principale">
+                <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+                <ul class="nav__list">
+                    <li><a href="../index.html" class="nav__link">Accueil</a></li>
+                    <li><a href="association.html" class="nav__link">L'association</a></li>
+                    <li><a href="activites.html" class="nav__link">Nos activités</a></li>
+                    <li><a href="agenda.html" class="nav__link active">Agenda</a></li>
+                    <li><a href="galerie.html" class="nav__link">Galerie</a></li>
+                    <li><a href="partenaires.html" class="nav__link">Partenaires</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero__title">Agenda des événements</h1>
+            <p class="hero__subtitle">Découvrez notre programme d'activités</p>
+            <p class="hero__description">
+                Consultez notre agenda régulièrement mis à jour et inscrivez-vous 
+                aux activités qui vous intéressent. Toutes nos activités sont ouvertes à tous !
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Filtres -->
+    <section class="section" style="padding-top: 2rem;">
+        <div class="container">
+            <div class="calendar-filters">
+                <button class="filter-btn active" data-category="all">
+                    <span>🗓️</span> Tous les événements
+                </button>
+                <button class="filter-btn" data-category="numérique">
+                    <span>💻</span> Café numérique
+                </button>
+                <button class="filter-btn" data-category="cuisine">
+                    <span>🥞</span> Ateliers cuisine
+                </button>
+                <button class="filter-btn" data-category="spectacle">
+                    <span>🎭</span> Spectacles
+                </button>
+                <button class="filter-btn" data-category="montessori">
+                    <span>🧸</span> Montessori
+                </button>
+                <button class="filter-btn" data-category="écriture">
+                    <span>✍️</span> Écriture
+                </button>
+                <button class="filter-btn" data-category="sortie">
+                    <span>🚌</span> Sorties
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Événements -->
+    <section class="section" style="padding-top: 1rem;">
+        <div class="container">
+            <div id="events-container">
+                <div class="loading">
+                    <p>Chargement des événements...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Informations pratiques -->
+    <section class="section" style="background-color: #F8F9FA;">
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Informations pratiques</h2>
+            </header>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card__icon">📍</div>
+                    <h3 class="card__title">Nos lieux</h3>
+                    <p class="card__description">
+                        <strong>Médiathèque Jean-Paul Roussillot</strong><br>
+                        Place de la Mairie<br>
+                        18150 La Guerche-sur-l'Aubois<br>
+                        Tél : 02 48 80 27 50
+                    </p>
+                    <p class="card__description" style="margin-top: 1rem;">
+                        <strong>Salle polyvalente</strong><br>
+                        Rue de la République<br>
+                        18150 La Guerche-sur-l'Aubois
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">📞</div>
+                    <h3 class="card__title">Inscriptions</h3>
+                    <p class="card__description">
+                        Pour certaines activités, l'inscription est obligatoire.
+                        Contactez-nous par téléphone, email ou directement à la médiathèque.
+                    </p>
+                    <div style="margin-top: 1rem;">
+                        <a href="contact.html" class="btn btn--primary">Nous contacter</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">♿</div>
+                    <h3 class="card__title">Accessibilité</h3>
+                    <p class="card__description">
+                        Tous nos lieux sont accessibles aux personnes à mobilité réduite.
+                        N'hésitez pas à nous signaler vos besoins particuliers lors de l'inscription.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">💰</div>
+                    <h3 class="card__title">Tarifs</h3>
+                    <p class="card__description">
+                        La plupart de nos activités sont gratuites ou proposées à prix symbolique 
+                        pour rester accessibles à tous. Les tarifs sont indiqués pour chaque événement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h3>Anim'Média</h3>
+                    <p>Association culturelle et numérique</p>
+                    <p>La Guerche-sur-l'Aubois</p>
+                    <p>Cher (18), France</p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Nos activités</h3>
+                    <p><a href="activites.html">Café numérique</a></p>
+                    <p><a href="activites.html">Ateliers Montessori</a></p>
+                    <p><a href="activites.html">Ateliers cuisine</a></p>
+                    <p><a href="activites.html">Spectacles</a></p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Liens utiles</h3>
+                    <p><a href="agenda.html">Agenda des événements</a></p>
+                    <p><a href="partenaires.html">Nos partenaires</a></p>
+                    <p><a href="galerie.html">Galerie photos</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Nos partenaires</h3>
+                    <p>Mairie de La Guerche-sur-l'Aubois</p>
+                    <p>Médiathèque Jean-Paul Roussillot</p>
+                    <p>Conseil Départemental du Cher</p>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 Anim'Média - Tous droits réservés | Association loi 1901</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/agenda.js"></script>
+</body>
+</html>

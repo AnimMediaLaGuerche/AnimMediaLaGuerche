@@ -1,0 +1,312 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "name": "Café numérique",
+      "slug": "cafe-numerique",
+      "category": "numérique",
+      "description": "Accompagnement personnalisé pour vos démarches numériques dans une ambiance conviviale",
+      "long_description": "Tous les mercredis de 10h à 12h, rejoignez-nous pour un moment d'apprentissage et d'entraide autour du numérique. Dans une ambiance détendue et conviviale, nos bénévoles vous accompagnent selon vos besoins.",
+      "schedule": {
+        "frequency": "weekly",
+        "day": "mercredi",
+        "time": "10:00-12:00"
+      },
+      "location": "Médiathèque Jean-Paul Roussillot",
+      "price": "Gratuit",
+      "registration_required": false,
+      "max_participants": 12,
+      "age_group": "Tous âges",
+      "difficulty": "Tous niveaux",
+      "materials_provided": true,
+      "skills_learned": [
+        "Navigation internet sécurisée",
+        "Gestion des emails",
+        "Démarches administratives en ligne",
+        "Retouche et organisation de photos",
+        "Réseaux sociaux en toute sécurité",
+        "Utilisation de smartphone/tablette"
+      ],
+      "target_audience": [
+        "Débutants complets",
+        "Seniors souhaitant s'initier",
+        "Personnes voulant se perfectionner",
+        "Aide aux devoirs numériques"
+      ],
+      "contact": "cafe.numerique@anim-media.fr",
+      "icon": "💻",
+      "color": "#4682B4",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Ateliers Montessori",
+      "slug": "ateliers-montessori",
+      "category": "éducation",
+      "description": "Activités créatives et éducatives basées sur la pédagogie Montessori pour développer l'autonomie",
+      "long_description": "Samedis matin de 9h30 à 11h30 (selon planning). Des activités créatives et éducatives basées sur la pédagogie Montessori pour développer l'autonomie, la créativité et la confiance en soi.",
+      "schedule": {
+        "frequency": "monthly",
+        "day": "samedi",
+        "time": "09:30-11:30",
+        "note": "Selon planning mensuel"
+      },
+      "location": "Salle polyvalente",
+      "price": "5€ par séance",
+      "registration_required": true,
+      "max_participants": 8,
+      "age_group": "3-10 ans",
+      "difficulty": "Adapté à l'âge",
+      "materials_provided": true,
+      "skills_learned": [
+        "Activités sensorielles",
+        "Jeux de manipulation et motricité fine",
+        "Ateliers créatifs et artistiques",
+        "Activités de vie pratique",
+        "Découverte de la nature",
+        "Jeux coopératifs"
+      ],
+      "target_audience": [
+        "Enfants de 3-6 ans : Éveil et découverte",
+        "Enfants de 6-10 ans : Créativité et autonomie",
+        "Groupes de 8 enfants maximum",
+        "Encadrement bienveillant"
+      ],
+      "contact": "montessori@anim-media.fr",
+      "icon": "🧸",
+      "color": "#FF69B4",
+      "notes": "Prévoir des vêtements pouvant être salis",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "Ateliers cuisine & crêpes",
+      "slug": "ateliers-cuisine",
+      "category": "cuisine",
+      "description": "Partagez des moments gourmands en apprenant de nouvelles recettes du terroir",
+      "long_description": "Un dimanche après-midi par mois de 14h à 17h. Partagez des moments gourmands et conviviaux en apprenant de nouvelles recettes. Cuisine du terroir, pâtisseries, spécialités régionales... Il y en a pour tous les goûts !",
+      "schedule": {
+        "frequency": "monthly",
+        "day": "dimanche",
+        "time": "14:00-17:00",
+        "note": "Un dimanche par mois"
+      },
+      "location": "Cuisine de la médiathèque",
+      "price": "Gratuit",
+      "registration_required": true,
+      "max_participants": 15,
+      "age_group": "Familles",
+      "difficulty": "Débutant à intermédiaire",
+      "materials_provided": true,
+      "skills_learned": [
+        "Atelier crêpes traditionnel",
+        "Gâteaux et pâtisseries",
+        "Recettes du terroir berrichon",
+        "Cuisine de saison",
+        "Techniques de base",
+        "Dégustation conviviale"
+      ],
+      "target_audience": [
+        "Moment de partage en famille",
+        "Échange de recettes familiales",
+        "Convivialité intergénérationnelle",
+        "Apprentissage dans la bonne humeur"
+      ],
+      "contact": "ateliers@anim-media.fr",
+      "icon": "🥞",
+      "color": "#F4A460",
+      "notes": "Ingrédients fournis. Repartez avec vos créations !",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "name": "Ateliers d'écriture créative",
+      "slug": "ateliers-ecriture",
+      "category": "littérature",
+      "description": "Libérez votre créativité et explorez l'art de l'écriture dans un cadre bienveillant",
+      "long_description": "Jeudis soir de 18h30 à 20h30 (une fois par mois). Libérez votre créativité et laissez libre cours à votre imagination dans un cadre bienveillant. Que vous soyez débutant ou confirmé, venez explorer l'art de l'écriture.",
+      "schedule": {
+        "frequency": "monthly",
+        "day": "jeudi",
+        "time": "18:30-20:30",
+        "note": "Une fois par mois"
+      },
+      "location": "Médiathèque Jean-Paul Roussillot",
+      "price": "3€ par séance",
+      "registration_required": true,
+      "max_participants": 12,
+      "age_group": "Adultes",
+      "difficulty": "Tous niveaux",
+      "materials_provided": true,
+      "skills_learned": [
+        "Nouvelles et récits courts",
+        "Poésie et textes poétiques",
+        "Écriture de mémoires",
+        "Théâtre et dialogues",
+        "Correspondances créatives",
+        "Textes humoristiques"
+      ],
+      "target_audience": [
+        "Développer son style personnel",
+        "Vaincre la peur de la page blanche",
+        "Partager et recevoir des retours",
+        "S'enrichir des autres participants"
+      ],
+      "contact": "ecriture@anim-media.fr",
+      "icon": "✍️",
+      "color": "#32CD32",
+      "notes": "Matériel d'écriture fourni",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "name": "Spectacles",
+      "slug": "spectacles",
+      "category": "spectacle",
+      "description": "Spectacles vivants pour tous les âges en partenariat avec la médiathèque",
+      "long_description": "Une fois par mois, généralement le week-end. En partenariat avec la médiathèque, nous organisons des spectacles vivants pour tous les âges. Théâtre, musique, contes, marionnettes... Une programmation riche et variée !",
+      "schedule": {
+        "frequency": "monthly",
+        "day": "weekend",
+        "time": "Variable",
+        "note": "Généralement le week-end"
+      },
+      "location": "Salle de spectacle - Médiathèque",
+      "price": "Gratuit ou prix libre",
+      "registration_required": true,
+      "max_participants": 50,
+      "age_group": "Tout public",
+      "difficulty": "Tout public",
+      "materials_provided": false,
+      "skills_learned": [
+        "Spectacles jeune public (3-10 ans)",
+        "Théâtre pour adolescents et adultes",
+        "Concerts et récitals",
+        "Contes et lectures musicales",
+        "Spectacles interactifs",
+        "Événements thématiques"
+      ],
+      "target_audience": [
+        "Artistes professionnels",
+        "Cadre intimiste de la médiathèque",
+        "Rencontres avec les artistes",
+        "Ateliers découverte parfois proposés"
+      ],
+      "contact": "spectacles@anim-media.fr",
+      "icon": "🎭",
+      "color": "#9370DB",
+      "notes": "Places limitées. Réservation conseillée",
+      "featured": true
+    },
+    {
+      "id": 6,
+      "name": "Sorties culturelles",
+      "slug": "sorties-culturelles",
+      "category": "sortie",
+      "description": "Découvrez la richesse culturelle de notre région en groupe",
+      "long_description": "Visites de musées, théâtres, festivals régionaux... Découvrez la richesse culturelle de notre région en groupe dans une ambiance conviviale.",
+      "schedule": {
+        "frequency": "occasional",
+        "note": "Programmation variable selon les opportunités"
+      },
+      "location": "Variable",
+      "price": "Variable (transport + entrée)",
+      "registration_required": true,
+      "max_participants": 25,
+      "age_group": "Tout public",
+      "difficulty": "Tout public",
+      "materials_provided": false,
+      "contact": "sorties@anim-media.fr",
+      "icon": "🚌",
+      "color": "#FF6347",
+      "notes": "Transport organisé. Départ devant la mairie",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "name": "Événements festifs",
+      "slug": "evenements-festifs",
+      "category": "événement",
+      "description": "Participation aux événements locaux et organisation de moments festifs",
+      "long_description": "Fête des associations, célébrations locales, soirées thématiques... Nous participons activement à la vie festive de la commune.",
+      "schedule": {
+        "frequency": "occasional",
+        "note": "Selon le calendrier des événements locaux"
+      },
+      "location": "Variable",
+      "price": "Gratuit",
+      "registration_required": false,
+      "age_group": "Tout public",
+      "difficulty": "Tout public",
+      "contact": "contact@anim-media.fr",
+      "icon": "🎉",
+      "color": "#FFD700",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "name": "Ateliers saisonniers",
+      "slug": "ateliers-saisonniers",
+      "category": "créatif",
+      "description": "Activités créatives qui rythment les saisons",
+      "long_description": "Décoration de Noël, jardinage au printemps, confitures d'été... Des activités qui rythment les saisons et créent du lien social.",
+      "schedule": {
+        "frequency": "seasonal",
+        "note": "Selon les saisons et les occasions"
+      },
+      "location": "Variable",
+      "price": "Prix symbolique",
+      "registration_required": true,
+      "age_group": "Tout public",
+      "difficulty": "Débutant",
+      "contact": "ateliers@anim-media.fr",
+      "icon": "🌸",
+      "color": "#98FB98",
+      "featured": false
+    }
+  ],
+  "categories": {
+    "numérique": {
+      "name": "Numérique",
+      "description": "Accompagnement et formation aux outils numériques"
+    },
+    "éducation": {
+      "name": "Éducation",
+      "description": "Activités éducatives et pédagogiques"
+    },
+    "cuisine": {
+      "name": "Cuisine",
+      "description": "Ateliers culinaires et gastronomiques"
+    },
+    "littérature": {
+      "name": "Littérature",
+      "description": "Ateliers d'écriture et littéraires"
+    },
+    "spectacle": {
+      "name": "Spectacle",
+      "description": "Représentations artistiques et culturelles"
+    },
+    "sortie": {
+      "name": "Sorties",
+      "description": "Découvertes culturelles en dehors de la commune"
+    },
+    "événement": {
+      "name": "Événements",
+      "description": "Manifestations et célébrations locales"
+    },
+    "créatif": {
+      "name": "Créatif",
+      "description": "Activités manuelles et artistiques"
+    }
+  },
+  "general_info": {
+    "association_name": "Anim'Média",
+    "location": "La Guerche-sur-l'Aubois",
+    "department": "Cher (18)",
+    "main_venue": "Médiathèque Jean-Paul Roussillot",
+    "philosophy": "Partage, entraide et convivialité",
+    "accessibility": "Tous nos lieux sont accessibles aux personnes à mobilité réduite",
+    "registration_info": "Contactez-nous par téléphone, email ou directement à la médiathèque",
+    "last_updated": "2024-08-26"
+  }
+}

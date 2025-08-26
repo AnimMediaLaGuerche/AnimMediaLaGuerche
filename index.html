@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anim'Média - Association culturelle et numérique à La Guerche-sur-l'Aubois. Ateliers, spectacles et activités conviviales pour tous.">
+    <meta name="keywords" content="association, La Guerche-sur-l'Aubois, ateliers, numérique, culture, Montessori, spectacles">
+    <meta name="author" content="Anim'Média">
+    
+    <title>Anim'Média - Association culturelle à La Guerche-sur-l'Aubois</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="Anim'Média - Association culturelle">
+    <meta property="og:description" content="Ateliers, spectacles et activités conviviales pour tous à La Guerche-sur-l'Aubois">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.anim-media.fr">
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="index.html" class="logo" aria-label="Retour à l'accueil">
+                <div class="logo__icon" aria-hidden="true">🎭</div>
+                <span>Anim'Média</span>
+            </a>
+            
+            <nav class="nav" role="navigation" aria-label="Navigation principale">
+                <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                    ☰
+                </button>
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link active">Accueil</a></li>
+                    <li><a href="pages/association.html" class="nav__link">L'association</a></li>
+                    <li><a href="pages/activites.html" class="nav__link">Nos activités</a></li>
+                    <li><a href="pages/agenda.html" class="nav__link">Agenda</a></li>
+                    <li><a href="pages/galerie.html" class="nav__link">Galerie</a></li>
+                    <li><a href="pages/partenaires.html" class="nav__link">Partenaires</a></li>
+                    <li><a href="pages/contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="hero" role="banner">
+        <div class="container">
+            <h1 class="hero__title">Bienvenue chez Anim'Média</h1>
+            <p class="hero__subtitle">L'association qui anime La Guerche-sur-l'Aubois</p>
+            <p class="hero__description">
+                Découvrez nos ateliers numériques, créatifs et conviviaux. 
+                Un lieu de partage et d'entraide pour toute la famille, 
+                en partenariat avec la Mairie et la Médiathèque Jean-Paul Roussillot.
+            </p>
+            <div class="hero__actions">
+                <a href="pages/activites.html" class="btn btn--outline">Découvrir nos activités</a>
+                <a href="pages/agenda.html" class="btn">Voir l'agenda</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Actualités -->
+    <section class="section" id="actualites">
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Nos dernières actualités</h2>
+                <p class="section__subtitle">Restez informés de nos prochains événements et ateliers</p>
+            </header>
+            
+            <div class="card-grid" id="actualites-grid">
+                <!-- Les actualités seront chargées dynamiquement via JavaScript -->
+                <article class="card fade-in-up">
+                    <div class="card__icon">📅</div>
+                    <h3 class="card__title">Atelier crêpes du 15 septembre</h3>
+                    <p class="card__description">
+                        Rejoignez-nous pour un moment convivial autour de la préparation de crêpes. 
+                        Ouvert à tous, gratuit sur inscription. 14h-17h à la médiathèque.
+                    </p>
+                    <a href="pages/agenda.html" class="btn mt-3">En savoir plus</a>
+                </article>
+                
+                <article class="card fade-in-up">
+                    <div class="card__icon">💻</div>
+                    <h3 class="card__title">Café numérique hebdomadaire</h3>
+                    <p class="card__description">
+                        Tous les mercredis de 10h à 12h, venez vous initier ou vous perfectionner 
+                        au numérique dans une ambiance détendue. Aide personnalisée assurée.
+                    </p>
+                    <a href="pages/activites.html" class="btn mt-3">Découvrir</a>
+                </article>
+                
+                <article class="card fade-in-up">
+                    <div class="card__icon">🎪</div>
+                    <h3 class="card__title">Spectacle jeune public</h3>
+                    <p class="card__description">
+                        Prochaine représentation le 22 septembre à 15h. Un spectacle interactif 
+                        pour les enfants de 3 à 10 ans, en partenariat avec la médiathèque.
+                    </p>
+                    <a href="pages/agenda.html" class="btn mt-3">Réserver</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Nos activités phares -->
+    <section class="section" style="background-color: #F8F9FA;">
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Nos activités phares</h2>
+                <p class="section__subtitle">Des ateliers variés pour tous les âges et tous les goûts</p>
+            </header>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card__icon">💻</div>
+                    <h3 class="card__title">Café numérique</h3>
+                    <p class="card__description">
+                        Initiation et perfectionnement informatique dans une ambiance conviviale. 
+                        Aide personnalisée pour vos démarches en ligne, photos, emails...
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">🧸</div>
+                    <h3 class="card__title">Ateliers Montessori</h3>
+                    <p class="card__description">
+                        Activités créatives et éducatives pour les enfants selon la pédagogie Montessori. 
+                        Développement de l'autonomie et de la créativité.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">🥞</div>
+                    <h3 class="card__title">Ateliers cuisine</h3>
+                    <p class="card__description">
+                        Crêpes, gâteaux, recettes du terroir... Partagez des moments gourmands 
+                        et apprenez de nouvelles recettes en bonne compagnie.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">✍️</div>
+                    <h3 class="card__title">Ateliers d'écriture</h3>
+                    <p class="card__description">
+                        Libérez votre créativité à travers l'écriture. Nouvelles, poésie, mémoires... 
+                        Un espace bienveillant pour exprimer vos idées.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">🎭</div>
+                    <h3 class="card__title">Spectacles</h3>
+                    <p class="card__description">
+                        Théâtre, musique, contes... Nous organisons régulièrement des spectacles 
+                        pour petits et grands à la médiathèque.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__icon">🤝</div>
+                    <h3 class="card__title">Moments conviviaux</h3>
+                    <p class="card__description">
+                        Cafés-rencontres, sorties culturelles, événements festifs... 
+                        Créons du lien social dans notre belle commune.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="pages/activites.html" class="btn btn--primary">Voir toutes nos activités</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Qui sommes-nous -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h2 class="section__title text-left">Qui sommes-nous ?</h2>
+                    <p class="mb-3" style="font-size: 1.1rem; line-height: 1.7;">
+                        <strong>Anim'Média</strong> est une association loi 1901 créée pour dynamiser 
+                        la vie culturelle et sociale de La Guerche-sur-l'Aubois et ses environs.
+                    </p>
+                    <p class="mb-3" style="line-height: 1.7;">
+                        Sous la présidence de <strong>Françoise Cordier</strong>, notre équipe de bénévoles 
+                        passionnés organise des activités variées dans un esprit de partage, 
+                        d'entraide et de convivialité.
+                    </p>
+                    <p class="mb-4" style="line-height: 1.7;">
+                        En partenariat avec la <strong>Mairie</strong> et la <strong>Médiathèque Jean-Paul Roussillot</strong>, 
+                        nous proposons des ateliers gratuits ou à prix symbolique, accessibles à tous.
+                    </p>
+                    <a href="pages/association.html" class="btn btn--primary">En savoir plus sur nous</a>
+                </div>
+                <div style="text-align: center;">
+                    <div style="background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); 
+                                padding: 2rem; border-radius: 12px; color: white; font-size: 4rem;">
+                        🏛️
+                    </div>
+                    <p class="mt-2 text-light" style="font-style: italic;">
+                        La Guerche-sur-l'Aubois, Cher (18)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact rapide -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: white;">
+        <div class="container text-center">
+            <h2 class="section__title" style="color: white;">Rejoignez-nous !</h2>
+            <p class="section__subtitle" style="color: rgba(255,255,255,0.9); margin-bottom: 2rem;">
+                Vous souhaitez participer à nos activités ou devenir bénévole ? 
+                N'hésitez pas à nous contacter.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="pages/contact.html" class="btn btn--outline">Nous contacter</a>
+                <a href="pages/agenda.html" class="btn" style="background: rgba(255,255,255,0.2);">Voir l'agenda</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h3>Anim'Média</h3>
+                    <p>Association culturelle et numérique</p>
+                    <p>La Guerche-sur-l'Aubois</p>
+                    <p>Cher (18), France</p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Nos activités</h3>
+                    <p><a href="pages/activites.html">Café numérique</a></p>
+                    <p><a href="pages/activites.html">Ateliers Montessori</a></p>
+                    <p><a href="pages/activites.html">Ateliers cuisine</a></p>
+                    <p><a href="pages/activites.html">Spectacles</a></p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Liens utiles</h3>
+                    <p><a href="pages/agenda.html">Agenda des événements</a></p>
+                    <p><a href="pages/partenaires.html">Nos partenaires</a></p>
+                    <p><a href="pages/galerie.html">Galerie photos</a></p>
+                    <p><a href="pages/contact.html">Contact</a></p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Nos partenaires</h3>
+                    <p>Mairie de La Guerche-sur-l'Aubois</p>
+                    <p>Médiathèque Jean-Paul Roussillot</p>
+                    <p>Conseil Départemental du Cher</p>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 Anim'Média - Tous droits réservés | Association loi 1901</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

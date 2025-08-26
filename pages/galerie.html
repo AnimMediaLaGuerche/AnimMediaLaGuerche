@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerie photos et vidéos des activités d'Anim'Média : ateliers, spectacles, moments conviviaux à La Guerche-sur-l'Aubois.">
+    <title>Galerie - Anim'Média</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #E8E8E8, #F8F8F8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-content {
+            padding: 1.5rem;
+        }
+        
+        .gallery-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-description {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .gallery-date {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            background: var(--background-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .gallery-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border-color);
+            background: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-btn.active {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .video-placeholder {
+            position: relative;
+        }
+        
+        .video-placeholder::before {
+            content: "▶️";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            z-index: 2;
+        }
+        
+        .video-placeholder::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="../index.html" class="logo" aria-label="Retour à l'accueil">
+                <div class="logo__icon" aria-hidden="true">🎭</div>
+                <span>Anim'Média</span>
+            </a>
+            
+            <nav class="nav" role="navigation" aria-label="Navigation principale">
+                <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+                <ul class="nav__list">
+                    <li><a href="../index.html" class="nav__link">Accueil</a></li>
+                    <li><a href="association.html" class="nav__link">L'association</a></li>
+                    <li><a href="activites.html" class="nav__link">Nos activités</a></li>
+                    <li><a href="agenda.html" class="nav__link">Agenda</a></li>
+                    <li><a href="galerie.html" class="nav__link active">Galerie</a></li>
+                    <li><a href="partenaires.html" class="nav__link">Partenaires</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero__title">Galerie photos & vidéos</h1>
+            <p class="hero__subtitle">Revivez nos plus beaux moments</p>
+            <p class="hero__description">
+                Découvrez en images l'ambiance conviviale de nos ateliers, spectacles et événements. 
+                Chaque photo raconte une histoire de partage et de convivialité.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Filtres -->
+    <section class="section" style="padding-top: 2rem;">
+        <div class="container">
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-category="all">
+                    <span>📸</span> Toutes les photos
+                </button>
+                <button class="filter-btn" data-category="numerique">
+                    <span>💻</span> Café numérique
+                </button>
+                <button class="filter-btn" data-category="cuisine">
+                    <span>🥞</span> Ateliers cuisine
+                </button>
+                <button class="filter-btn" data-category="spectacles">
+                    <span>🎭</span> Spectacles
+                </button>
+                <button class="filter-btn" data-category="montessori">
+                    <span>🧸</span> Montessori
+                </button>
+                <button class="filter-btn" data-category="evenements">
+                    <span>🎉</span> Événements
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie -->
+    <section class="section" style="padding-top: 1rem;">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Atelier crêpes -->
+                <div class="gallery-item" data-category="cuisine">
+                    <div class="gallery-image">🥞</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Atelier crêpes familial</h3>
+                        <p class="gallery-description">
+                            Un moment de convivialité et de gourmandise partagé en famille. 
+                            Petits et grands ont mis la main à la pâte !
+                        </p>
+                        <span class="gallery-date">Septembre 2024</span>
+                    </div>
+                </div>
+                
+                <!-- Café numérique -->
+                <div class="gallery-item" data-category="numerique">
+                    <div class="gallery-image">💻</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Café numérique du mercredi</h3>
+                        <p class="gallery-description">
+                            Nos bénévoles accompagnent les participants dans leurs découvertes numériques. 
+                            Une ambiance détendue et bienveillante.
+                        </p>
+                        <span class="gallery-date">Août 2024</span>
+                    </div>
+                </div>
+                
+                <!-- Spectacle jeune public -->
+                <div class="gallery-item video-placeholder" data-category="spectacles">
+                    <div class="gallery-image">🎭</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Spectacle "Les aventures de Léo"</h3>
+                        <p class="gallery-description">
+                            Les enfants ont été captivés par ce spectacle interactif. 
+                            Rires et émerveillement étaient au rendez-vous !
+                        </p>
+                        <span class="gallery-date">Juillet 2024</span>
+                    </div>
+                </div>
+                
+                <!-- Atelier Montessori -->
+                <div class="gallery-item" data-category="montessori">
+                    <div class="gallery-image">🧸</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Atelier Montessori - Arts créatifs</h3>
+                        <p class="gallery-description">
+                            Les enfants explorent leur créativité à travers différentes activités artistiques. 
+                            Concentration et joie de créer !
+                        </p>
+                        <span class="gallery-date">Juin 2024</span>
+                    </div>
+                </div>
+                
+                <!-- Fête de l'association -->
+                <div class="gallery-item" data-category="evenements">
+                    <div class="gallery-image">🎉</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Fête des associations</h3>
+                        <p class="gallery-description">
+                            Notre stand lors de la fête des associations. Une belle occasion 
+                            de présenter nos activités aux habitants.
+                        </p>
+                        <span class="gallery-date">Mai 2024</span>
+                    </div>
+                </div>
+                
+                <!-- Atelier d'écriture -->
+                <div class="gallery-item" data-category="evenements">
+                    <div class="gallery-image">✍️</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Atelier d'écriture "Printemps"</h3>
+                        <p class="gallery-description">
+                            Moments de concentration et de partage autour de l'écriture créative. 
+                            Chacun a pu exprimer sa sensibilité.
+                        </p>
+                        <span class="gallery-date">Avril 2024</span>
+                    </div>
+                </div>
+                
+                <!-- Concert de jazz -->
+                <div class="gallery-item video-placeholder" data-category="spectacles">
+                    <div class="gallery-image">🎷</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Concert Jazz "Blue Notes"</h3>
+                        <p class="gallery-description">
+                            Une soirée musicale d'exception avec le duo Blue Notes. 
+                            L'acoustique de la médiathèque était parfaite !
+                        </p>
+                        <span class="gallery-date">Mars 2024</span>
+                    </div>
+                </div>
+                
+                <!-- Sortie culturelle -->
+                <div class="gallery-item" data-category="evenements">
+                    <div class="gallery-image">🚌</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Sortie au Musée de la Sorcellerie</h3>
+                        <p class="gallery-description">
+                            Découverte des légendes et traditions de notre région. 
+                            Une sortie enrichissante et conviviale.
+                        </p>
+                        <span class="gallery-date">Mars 2024</span>
+                    </div>
+                </div>
+                
+                <!-- Atelier cuisine tartes -->
+                <div class="gallery-item" data-category="cuisine">
+                    <div class="gallery-image">🥧</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Atelier tartes d'automne</h3>
+                        <p class="gallery-description">
+                            Apprentissage des techniques de pâtisserie avec les fruits de saison. 
+                            Délicieux et instructif !
+                        </p>
+                        <span class="gallery-date">Février 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Partage -->
+    <section class="section" style="background-color: #F8F9FA;">
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Partagez vos souvenirs !</h2>
+                <p class="section__subtitle">
+                    Vous avez participé à une de nos activités ? Envoyez-nous vos photos !
+                </p>
+            </header>
+            
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📤</div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                        Contribuez à notre galerie
+                    </h3>
+                    <p style="line-height: 1.6; margin-bottom: 2rem;">
+                        Vous avez des photos ou vidéos de nos activités que vous souhaitez partager ? 
+                        Envoyez-les nous par email, nous les ajouterons avec plaisir à notre galerie 
+                        (avec votre autorisation bien sûr).
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="mailto:galerie@anim-media.fr" class="btn btn--primary">
+                            Envoyer des photos
+                        </a>
+                        <a href="contact.html" class="btn">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Autorisations -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 class="section__title">Droit à l'image</h2>
+                
+                <div class="card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                        Respect de votre vie privée
+                    </h3>
+                    <p style="line-height: 1.7; margin-bottom: 1rem;">
+                        Toutes les photos et vidéos présentes dans cette galerie ont été prises 
+                        avec l'autorisation des participants ou de leurs représentants légaux 
+                        pour les mineurs.
+                    </p>
+                    <p style="line-height: 1.7; margin-bottom: 1rem;">
+                        Si vous souhaitez qu'une photo ou vidéo soit retirée, ou si vous avez 
+                        des questions concernant l'utilisation de votre image, n'hésitez pas 
+                        à nous contacter.
+                    </p>
+                    <p style="line-height: 1.7;">
+                        <strong>Contact :</strong> 
+                        <a href="mailto:contact@anim-media.fr">contact@anim-media.fr</a> 
+                        ou 02 48 80 27 50
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h3>Anim'Média</h3>
+                    <p>Association culturelle et numérique</p>
+                    <p>La Guerche-sur-l'Aubois</p>
+                    <p>Cher (18), France</p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Nos activités</h3>
+                    <p><a href="activites.html">Café numérique</a></p>
+                    <p><a href="activites.html">Ateliers Montessori</a></p>
+                    <p><a href="activites.html">Ateliers cuisine</a></p>
+                    <p><a href="activites.html">Spectacles</a></p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Liens utiles</h3>
+                    <p><a href="agenda.html">Agenda des événements</a></p>
+                    <p><a href="partenaires.html">Nos partenaires</a></p>
+                    <p><a href="galerie.html">Galerie photos</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Nos partenaires</h3>
+                    <p>Mairie de La Guerche-sur-l'Aubois</p>
+                    <p>Médiathèque Jean-Paul Roussillot</p>
+                    <p>Conseil Départemental du Cher</p>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 Anim'Média - Tous droits réservés | Association loi 1901</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Gestion des filtres de galerie
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    
+                    // Mettre à jour les boutons actifs
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filtrer les éléments
+                    galleryItems.forEach(item => {
+                        if (category === 'all' || item.dataset.category === category) {
+                            item.style.display = 'block';
+                            item.style.animation = 'fadeInUp 0.5s ease-out';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
