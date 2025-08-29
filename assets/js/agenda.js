@@ -1,28 +1,43 @@
-// ===== GESTION DE L'AGENDA =====
+// ===== GESTION DE L'AGENDA - VERSION 2.0 =====
 class AgendaManager {
     constructor() {
         this.events = [];
+        this.activities = [];
         this.filteredEvents = [];
         this.currentFilter = 'all';
         this.init();
     }
     
     async init() {
-        await this.loadEvents();
+        await this.loadData();
         this.setupFilters();
         this.renderEvents();
     }
     
-    async loadEvents() {
+    async loadData() {
         try {
-            // En production, ceci chargerait depuis le fichier JSON
-            // Pour ce démo, on utilise les données directement
-            const response = await fetch('../data/events.json');
+            // Chargement du nouveau fichier content.json
+            const response = await fetch('../data/content.json');
             const data = await response.json();
-            this.events = data.events.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            this.activities = data.activities || [];
+            this.events = data.events || [];
+            
+            // Enrichir les événements avec les données d'activités
+            this.events = this.events.map(event => {
+                const activity = this.activities.find(act => act.id === event.activity_id);
+                return {
+                    ...event,
+                    activity: activity || null,
+                    icon: activity?.icon || '📅'
+                };
+            });
+            
+            // Trier par date
+            this.events.sort((a, b) => new Date(a.date) - new Date(b.date));
             this.filteredEvents = [...this.events];
         } catch (error) {
-            console.error('Erreur lors du chargement des événements:', error);
+            console.error('Erreur lors du chargement des données:', error);
             this.showError();
         }
     }
@@ -87,15 +102,20 @@ class AgendaManager {
         
         const registrationStatus = this.getRegistrationStatus(event);
         
+        // Utiliser les données de l'activité liée si disponible
+        const activityName = event.activity?.name || event.title;
+        const activityIcon = event.icon || '📅';
+        const categoryName = this.getCategoryName(event.category);
+        
         return `
             <article class="event-card ${event.category}" data-event-id="${event.id}">
                 <div class="event-header">
                     <div>
                         <h3 style="color: var(--primary-color); margin: 0 0 0.5rem 0; font-size: 1.3rem;">
-                            ${event.title}
+                            ${activityIcon} ${event.title}
                         </h3>
                         <span class="event-category" style="background: ${this.getCategoryColor(event.category)};">
-                            ${this.getCategoryIcon(event.category)} ${this.getCategoryName(event.category)}
+                            ${this.getCategoryIcon(event.category)} ${categoryName}
                         </span>
                     </div>
                     ${registrationStatus.html}

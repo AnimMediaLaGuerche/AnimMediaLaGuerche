@@ -1,0 +1,49 @@
+{
+  "site": {
+    "name": "Anim'Média",
+    "tagline": "Association culturelle et numérique",
+    "description": "L'association qui anime La Guerche-sur-l'Aubois",
+    "url": "https://www.anim-media.fr",
+    "version": "2.0",
+    "last_updated": "2025-08-29"
+  },
+  "contact": {
+    "email": "contact@anim-media.fr",
+    "phone": "02 48 00 00 00",
+    "address": {
+      "street": "",
+      "city": "La Guerche-sur-l'Aubois",
+      "postal_code": "18150",
+      "country": "France"
+    },
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "youtube": ""
+    }
+  },
+  "partners": [
+    {
+      "name": "Mairie de La Guerche-sur-l'Aubois",
+      "type": "institutional",
+      "logo": "",
+      "website": ""
+    },
+    {
+      "name": "Médiathèque Jean-Paul Roussillot",
+      "type": "cultural",
+      "logo": "",
+      "website": ""
+    }
+  ],
+  "settings": {
+    "events_per_page": 6,
+    "max_participants_default": 20,
+    "registration_deadline_days": 2,
+    "colors": {
+      "primary": "#2E7D32",
+      "secondary": "#FF7043",
+      "accent": "#1976D2"
+    }
+  }
+}

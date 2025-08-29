@@ -1,0 +1,133 @@
+{
+  "association": {
+    "name": "Anim'Média",
+    "description": "Association culturelle et numérique à La Guerche-sur-l'Aubois",
+    "contact": {
+      "email": "contact@anim-media.fr",
+      "phone": "02 48 00 00 00",
+      "address": "La Guerche-sur-l'Aubois"
+    }
+  },
+  "activities": [
+    {
+      "id": "cafe-numerique",
+      "name": "Café numérique",
+      "category": "numérique",
+      "description": "Accompagnement personnalisé pour vos démarches numériques dans une ambiance conviviale",
+      "schedule": {
+        "frequency": "weekly",
+        "day": "mercredi",
+        "time": "10:00-12:00"
+      },
+      "location": "Médiathèque Jean-Paul Roussillot",
+      "price": "Gratuit",
+      "registration_required": false,
+      "max_participants": 12,
+      "age_group": "Tous âges",
+      "difficulty": "Tous niveaux",
+      "contact": "cafe.numerique@anim-media.fr",
+      "icon": "💻"
+    },
+    {
+      "id": "ateliers-montessori",
+      "name": "Ateliers Montessori",
+      "category": "éducation",
+      "description": "Activités créatives et éducatives pour les enfants selon la pédagogie Montessori",
+      "schedule": {
+        "frequency": "weekly",
+        "day": "samedi",
+        "time": "14:00-16:00"
+      },
+      "location": "Salle associative",
+      "price": "15€/séance",
+      "registration_required": true,
+      "max_participants": 8,
+      "age_group": "3-10 ans",
+      "difficulty": "Débutant",
+      "contact": "montessori@anim-media.fr",
+      "icon": "🎨"
+    },
+    {
+      "id": "ateliers-cuisine",
+      "name": "Ateliers cuisine",
+      "category": "cuisine",
+      "description": "Découverte de la cuisine créative et partage de recettes en bonne compagnie",
+      "schedule": {
+        "frequency": "monthly",
+        "day": "dimanche",
+        "time": "10:00-13:00"
+      },
+      "location": "Cuisine associative",
+      "price": "20€/atelier",
+      "registration_required": true,
+      "max_participants": 6,
+      "age_group": "Adultes",
+      "difficulty": "Tous niveaux",
+      "contact": "cuisine@anim-media.fr",
+      "icon": "👨‍🍳"
+    },
+    {
+      "id": "spectacles",
+      "name": "Spectacles",
+      "category": "culture",
+      "description": "Organisation de spectacles vivants : théâtre, musique, contes pour tous",
+      "schedule": {
+        "frequency": "irregular",
+        "description": "Programmation variable selon les saisons"
+      },
+      "location": "Salle des fêtes",
+      "price": "Variable",
+      "registration_required": true,
+      "age_group": "Tous âges",
+      "contact": "spectacles@anim-media.fr",
+      "icon": "🎭"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "activity_id": "cafe-numerique",
+      "title": "Café numérique hebdomadaire",
+      "description": "Accompagnement personnalisé pour vos démarches numériques. Venez avec vos questions !",
+      "date": "2024-09-04",
+      "time": "10:00-12:00",
+      "location": "Médiathèque Jean-Paul Roussillot",
+      "category": "numérique",
+      "price": "Gratuit",
+      "registration_required": false,
+      "max_participants": 12,
+      "current_participants": 0,
+      "status": "scheduled"
+    },
+    {
+      "id": 2,
+      "activity_id": "ateliers-montessori",
+      "title": "Atelier créatif Montessori",
+      "description": "Création d'objets décoratifs avec les enfants selon la pédagogie Montessori",
+      "date": "2024-09-07",
+      "time": "14:00-16:00",
+      "location": "Salle associative",
+      "category": "éducation",
+      "price": "15€",
+      "registration_required": true,
+      "max_participants": 8,
+      "current_participants": 3,
+      "status": "scheduled"
+    },
+    {
+      "id": 3,
+      "activity_id": "spectacles",
+      "title": "Spectacle jeune public",
+      "description": "Représentation théâtrale interactive pour les enfants de 3 à 10 ans",
+      "date": "2024-09-22",
+      "time": "15:00-16:00",
+      "location": "Salle des fêtes",
+      "category": "culture",
+      "price": "8€ adulte, 5€ enfant",
+      "registration_required": true,
+      "max_participants": 50,
+      "current_participants": 12,
+      "status": "scheduled"
+    }
+  ]
+}

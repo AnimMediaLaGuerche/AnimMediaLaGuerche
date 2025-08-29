@@ -522,6 +522,7 @@
     <script>
         // Variables globales
         let events = [];
+        let activities = [];
         let editingEventId = null;
         let currentPreviewMode = 'desktop';
 
@@ -739,15 +740,16 @@
             `;
         }
 
-        // Chargement des événements
+        // Chargement des événements et activités
         async function loadEvents() {
             try {
-                const response = await fetch('data/events.json');
+                const response = await fetch('data/content.json');
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
                 const data = await response.json();
                 events = data.events || [];
+                activities = data.activities || [];
                 displayEvents();
                 showAlert(`✅ ${events.length} événement(s) chargé(s) avec succès`, 'success', 'events-alert-container');
             } catch (error) {
@@ -966,13 +968,13 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `events_${new Date().toISOString().split('T')[0]}.json`;
+            a.download = `content_${new Date().toISOString().split('T')[0]}.json`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             
-            showAlert(`💾 Fichier events.json téléchargé avec ${validEvents.length} événement(s) ! Remplacez-le dans votre dossier "data/" pour mettre à jour le site.`, 'success');
+            showAlert(`💾 Fichier content.json téléchargé avec ${validEvents.length} événement(s) ! Remplacez-le dans votre dossier "data/" pour mettre à jour le site.`, 'success');
             
             // Proposer l'ouverture directe du dossier data
             setTimeout(() => {
