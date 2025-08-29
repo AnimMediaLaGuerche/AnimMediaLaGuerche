@@ -1,5 +1,16 @@
 // ===== GESTION DU MENU MOBILE =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Enregistrement du Service Worker pour PWA
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+                console.log('Service Worker enregistré avec succès:', registration.scope);
+            })
+            .catch(function(error) {
+                console.log('Échec de l\'enregistrement du Service Worker:', error);
+            });
+    }
+
     const navToggle = document.querySelector('.nav__toggle');
     const navList = document.querySelector('.nav__list');
     
